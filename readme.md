@@ -15,7 +15,7 @@ https://app.box.com/german-twitter-dataset.
 It contains 8 folders each of appx. 2.5M sentences.
 Concatenate all the files to a single file for use.
 
-Selected files from http://www.cls.informatik.uni-leipzig.de are used in wikipedia dataset and is available at http://www.cls.informatik.uni-leipzig.de.
+Selected files from http://www.cls.informatik.uni-leipzig.de are used in wikipedia dataset and is available at https://app.box.com/s/7fbrl50qn5f06ey5rvujqi5eaozwz5c7.
 It contains 18 folders each of 1M sentences.
 The model could be learnt by iterating via all the files in a directory without the need of concatenating all the files.
 

@@ -12,7 +12,7 @@ The wikipedia dataset is available at http://www.cls.informatik.uni-leipzig.de/
 
 Some of the files explain the process of working and some of the files
 are importable.
-The files which walk through the processes are pointed out under 
+The files which walk through the processes are pointed out under
 each functions and the importable modules and files used is denoted under it.
 
 

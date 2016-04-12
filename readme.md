@@ -1,3 +1,5 @@
+## Emotion detection using word embeddings (word2vec & doc2vec)
+
 Emotion classification from german sentences with the help of feature vectors generated from word2vec and doc2vec models is experimented.
 From generating word and sentence vectors to classifying emotions, all the process are written in the python scripts.
 

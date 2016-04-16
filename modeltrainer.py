@@ -1,6 +1,6 @@
 # coding: utf-8
 
-import codecs,  logging, gensim, nltk
+import codecs,  logging, gensim, nltk, os
 from gensim.models.doc2vec import LabeledSentence
 
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
@@ -48,7 +48,7 @@ class WikiWordTrainer(object):
         for idx,file_name in enumerate(os.listdir(self.dir_name)):
             for idxx,line in enumerate(codecs.open(os.path.join(self.dir_name, file_name),'r','utf-8')):
                 translated = line.replace(',','').replace('.','')
-                words = [word.lower() for word in translated.split() if (word not in default_stopwords)]
+                words = [word.lower() for word in translated.split() if word not in default_stopwords]
                 yield words
 
 
@@ -61,5 +61,5 @@ class WikiSentenceTrainer(object):
         for idx,file_name in enumerate(os.listdir(self.dir_name)):
             for idxx,line in enumerate(codecs.open(os.path.join(self.dir_name, file_name),'r','utf-8')):
                 translated = line.replace(',','').replace('.','')
-                words = [word.lower() for word in translated.split() if (word not in default_stopwords) ]
+                words = [word.lower() for word in translated.split() if word not in default_stopwords]
                 yield LabeledSentence(words, tags=['%s'%idx+'%s'%idxx])

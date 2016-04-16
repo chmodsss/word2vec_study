@@ -5,9 +5,6 @@ import global_paths
 from extractlabeledtweets import ExtractLabeledTweets
 from modeltrainer import TweetWordTrainer, TweetSentenceTrainer, WikiWordTrainer, WikiSentenceTrainer
 
-if __name__ == '__main__':
-	main()
-
 ## preprocessing steps are applied on the raw dataset
 
 # Unwanted characters and stop words are removed from the dataset
@@ -58,28 +55,28 @@ twt_dm.train(tweet_sentences)
 twt_dm.save('Tweet_dm.model')
 
 # Wiki CBOW model
-wiki_words = TweetWordTrainer(wiki_path)
+wiki_words = WikiWordTrainer(wiki_path)
 wiki_cbow = gensim.models.Word2Vec(min_count=5, window=10, iter=3, sg=0, size=400, workers=40)
 wiki_cbow.build_vocab(wiki_words)
 wiki_cbow.train(wiki_words)
 wiki_cbow.save('Wiki_cbow.model')
 
 # Wiki SG model
-wiki_words = TweetWordTrainer(wiki_path)
+wiki_words = WikiWordTrainer(wiki_path)
 wiki_sg = gensim.models.Word2Vec(min_count=5, window=10, iter=3, sg=1, size=400, workers=40)
 wiki_sg.build_vocab(wiki_words)
 wiki_sg.train(wiki_words)
 wiki_sg.save('Wiki_sg.model')
 
 # Wiki DBOW model
-wiki_sentences = TweetSentenceTrainer(wiki_path)
+wiki_sentences = WikiSentenceTrainer(wiki_path)
 wiki_dbow = gensim.models.Doc2Vec(min_count=5, window=10, dm=0, size=400, iter=3, workers=40)
 wiki_dbow.build_vocab(wiki_sentences)
 wiki_dbow.train(wiki_sentences)
 wiki_dbow.save('Wiki_dbow.model')
 
 # Wiki DM model
-wiki_sentences = TweetSentenceTrainer(wiki_path)
+wiki_sentences = WikiSentenceTrainer(wiki_path)
 wiki_dm = gensim.models.Doc2Vec(min_count=5, window=10, dm=1, size=400, iter=3, workers=40)
 wiki_dm.build_vocab(wiki_sentences)
 wiki_dm.train(wiki_sentences)
